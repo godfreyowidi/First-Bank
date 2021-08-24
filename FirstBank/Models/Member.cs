@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FirstBank.Models
 {
-  public class Member
+  public class Member : Person
   {
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
