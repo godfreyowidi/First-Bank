@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using PagedList;
 using FirstBank.Models;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace FirstBank.Controllers
 {
@@ -21,7 +21,7 @@ namespace FirstBank.Controllers
       _db = db;
     }
 
-    // GET: Student
+    // GET: Member
     public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
     {
         ViewBag.CurrentSort = sortOrder;
@@ -67,7 +67,7 @@ namespace FirstBank.Controllers
         return View(members.ToPagedList(pageNumber, pageSize));
     }
     
-    // GET: Student/Details/5
+    // GET: Memmber/Details/{id}
     public ActionResult Details(int? id)
     {
         if (id == null)
@@ -78,6 +78,34 @@ namespace FirstBank.Controllers
         if (member == null)
         {
             return HttpNotFound();
+        }
+        return View(member);
+    }
+
+    // GET: Member/Create
+    public ActionResult Create()
+    {
+        return View();
+    }
+
+    // POST: Member/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create([Bind(Include = "LastName, FirstName, AddAccountDate")]Member member)
+    {
+        try
+        {
+          if (ModelState.IsValid)
+          {
+              _db.Members.Add(member);
+              _db.SaveChanges();
+              return RedirectToAction("Index");
+          }
+        }
+        catch (RetryLimitExceededException /* dex */)
+        {
+            
+            ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists check with your nearest branch.");
         }
         return View(member);
     }
