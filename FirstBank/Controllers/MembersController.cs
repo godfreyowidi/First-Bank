@@ -110,5 +110,91 @@ namespace FirstBank.Controllers
         return View(member);
     }
 
+    // GET: Member/Edit/{id}
+    public ActionResult Edit(int? id)
+    {
+      if (id == null)
+      {
+          return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+      }
+      Member member = _db.Members.Find(id);
+      if (member == null)
+      {
+          return HttpNotFound();
+      }
+      return View(member);
+    }
+
+    // POST: Member/Edit/{id}
+    [HttpPost, ActionName("Edit")]
+    [ValidateAntiForgeryToken]
+    public ActionResult EditPost(int? id)
+    {
+      if (id == null)
+      {
+          return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+      }
+      var MemberToUpdate = _db.Members.Find(id);
+      if (TryUpdateModel(MemberToUpdate, "",
+          new string[] { "LastName", "FirstName", "AddAccountDate" }))
+      {
+          try
+          {
+              _db.SaveChanges();
+
+              return RedirectToAction("Index");
+          }
+          catch (RetryLimitExceededException /* dex */)
+          {
+              ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, check in with your nearest branch.");
+          }
+      }
+      return View(MemberToUpdate);
+    }
+    // GET: Member/Delete/{id}
+    public ActionResult Delete(int? id, bool? saveChangesError = false)
+    {
+      if (id == null)
+      {
+          return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+      }
+      if (saveChangesError.GetValueOrDefault())
+      {
+          ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persista, check in with your nearest branch.";
+      }
+      Member member = _db.Members.Find(id);
+      if (member == null)
+      {
+          return HttpNotFound();
+      }
+      return View(member);
+    }
+
+    // POST: Member/Delete/{id}
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Delete(int id)
+    {
+        try
+        {
+            Member member = _db.Members.Find(id);
+            _db.Members.Remove(member);
+            _db.SaveChanges();
+        }
+        catch (RetryLimitExceededException/* dex */)
+        {
+            //return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+        }
+        return RedirectToAction("Index");
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            _db.Dispose();
+        }
+        base.Dispose(disposing);
+    }
   }
 }
