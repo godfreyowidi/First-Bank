@@ -1,3 +1,4 @@
+
 namespace FirstBank.Models
 {
   public class AddAccount
@@ -6,5 +7,6 @@ namespace FirstBank.Models
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string EmailAddress { get; set; }
+    public virtual Member Member { get; set; }
   }
 }
