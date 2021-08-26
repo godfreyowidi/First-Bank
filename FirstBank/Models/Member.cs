@@ -10,5 +10,6 @@ namespace FirstBank.Models
     [Display(Name = "Add Account Date")]
     public DateTime AddAccountDate { get; set; }
     public virtual ApplicationUser User { get; set; }
+    public virtual BankAccount BankAccount { get; set; }
   }
 }

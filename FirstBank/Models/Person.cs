@@ -1,29 +1,26 @@
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FirstBank.Models
 {
   public class Person
   {
-    public int Id { get; set; }
+    public int UserId { get; set; }
 
-    [Required]
-    [StringLength(50)]
-    [Display(Name = "Last Name")]
-    public string LastName { get; set; }
-    [Required]
-    [StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
-    [Column("FirstName")]
-    [Display(Name = "First Name")]
+    [Required(ErrorMessage = "Required.")]
     public string FirstName { get; set; }
+    public string LastName { get; set; }
 
-    [Display(Name = "Full Name")]
-    public string FullName
-    {
-        get
-        {
-            return LastName + ", " + FirstName;
-        }
-    }
+    [Required(ErrorMessage = "Required.")]
+    public string Password { get; set; }
+
+    [Required(ErrorMessage = "Required.")]
+    [Compare("Password", ErrorMessage = "Passwords do not match.")]
+    public string ConfirmPassword { get; set; }
+
+    [Required(ErrorMessage = "Required.")]
+    [EmailAddress(ErrorMessage = "Invalid email address.")]
+    public string Email { get; set; }
+    public bool RememberMe { get; set; }
   }
 }

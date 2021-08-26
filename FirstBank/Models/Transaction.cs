@@ -4,7 +4,7 @@ namespace FirstBank.Models
   {
     public int TransactionId { get; set; }
     public int Withdraw { get; set; }
-    public int Depositi { get; set; }
+    public int Deposit { get; set; }
     public int Transfer { get; set; }
   }
 }

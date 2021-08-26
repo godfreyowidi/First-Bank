@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FirstBank.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FirstBank.Controllers
 {
@@ -16,11 +17,6 @@ namespace FirstBank.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();
@@ -31,5 +27,16 @@ namespace FirstBank.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+        [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
     }
 }
