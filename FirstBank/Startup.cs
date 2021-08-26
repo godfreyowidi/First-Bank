@@ -25,6 +25,8 @@ namespace FirstBank
         {
             services.AddMvc();
 
+            services.AddHttpContextAccessor();
+
             services.AddEntityFrameworkMySql()
                 .AddDbContext<FirstBankContext>(options => options
                 .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));

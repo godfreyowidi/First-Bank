@@ -79,7 +79,6 @@ C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\FirstBank.csproj.Co
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\Accounts\Register.cshtml.g.cs
-C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
@@ -88,3 +87,11 @@ C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Microsoft.AspNetCor
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\MySqlConnector.dll
 C:\Users\Admin\Desktop\First-Bank\FirstBank\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\Accounts\Login.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\BankAccounts\Create.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\Transactions\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\Members\Details.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\BankAccounts\Delete.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\BankAccounts\Edit.cshtml.g.cs
+C:\Users\Admin\Desktop\First-Bank\FirstBank\obj\Debug\net5.0\Razor\Views\BankAccounts\Index.cshtml.g.cs

@@ -10,6 +10,6 @@ namespace FirstBank.Models
       [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
       [Display(Name = "Hire Date")]
       public DateTime HireDate { get; set; }
-      public virtual ICollection<Account> Accounts { get; set; } 
+      public virtual ICollection<BankAccount> BankAccounts { get; set; } 
   }
 }
